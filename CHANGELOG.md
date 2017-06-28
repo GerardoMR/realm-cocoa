@@ -40,6 +40,8 @@ Synchronized Realms require a server running Realm Object Server v2.0 or higher.
   Server 1.6.0 or later.
 * Improve performance of creating Swift objects which contain at least one List
   property.
+* Add Swift `Object.isSameObject(as:_)` API to perform the same function as
+  the existing Objective-C API `-[RLMObject isEqualToObject:]`.
 
 ### Bugfixes
 
@@ -47,6 +49,9 @@ Synchronized Realms require a server running Realm Object Server v2.0 or higher.
 * Fix unmanaged object initialization when a nested property type returned
   `false` from `Object.shouldIncludeInDefaultSchema()`.
 * Don't clear RLMArrays on self-assignment.
+* Swift `Object` comparison and hashing behavior now works the same way as
+  that of `RLMObject` (objects are now only considered equatable if their model
+  class defines a primary key).
 
 2.8.3 Release notes (2017-06-20)
 =============================================================
